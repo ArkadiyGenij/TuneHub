@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Зарегистрироваться</button>
-    </form>
-    <form method="post" action="{% url 'users:logout' %}">
-        {% csrf_token %}
-        <button type="submit">Выход</button>
-    </form>
+    <div class="container justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3 text-center">
+                <h1>Регистрация</h1>
+                <form method="post" class="text-start">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+                </form>
+                <a href="{% url 'users:login' %}" class="link-offset-1">Есть аккаунт? Авторизуйтесь</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
